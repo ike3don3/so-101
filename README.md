@@ -87,7 +87,7 @@ void sendPacket(byte id, byte instruction, byte param1 = 0, byte param2 = 0) {
   }
   packet[length + 3] = ~checksum; // ビット反転
 
-  // ---【重要】送受信の切り替え ---
+  // ---送受信の切り替え ---
   digitalWrite(DIR_PIN, LOW);       // 送信モードに設定 (バッファを有効化)
   delayMicroseconds(50);            // ドライバが安定するのを待つ
   ServoSerial.write(packet, length + 4);
